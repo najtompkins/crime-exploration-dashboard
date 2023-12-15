@@ -1,0 +1,28 @@
+{
+"type": "FeatureCollection",
+"name": "LAPD_policestation",
+"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
+"features": [
+{ "type": "Feature", "properties": { "FID": 1, "DIVISION": "HARBOR", "LOCATION": "2175 JOHN S. GIBSON BLVD.", "PREC": 5 }, "geometry": { "type": "Point", "coordinates": [ -118.289241552999954, 33.757660897000051 ] } },
+{ "type": "Feature", "properties": { "FID": 2, "DIVISION": "SOUTHEAST", "LOCATION": "145 W. 108TH ST.", "PREC": 18 }, "geometry": { "type": "Point", "coordinates": [ -118.275394205999987, 33.938627380000071 ] } },
+{ "type": "Feature", "properties": { "FID": 3, "DIVISION": "77TH STREET", "LOCATION": "7600 S. BROADWAY", "PREC": 12 }, "geometry": { "type": "Point", "coordinates": [ -118.277669654999954, 33.970307380000065 ] } },
+{ "type": "Feature", "properties": { "FID": 4, "DIVISION": "PACIFIC", "LOCATION": "12312 CULVER BLVD.", "PREC": 14 }, "geometry": { "type": "Point", "coordinates": [ -118.419841575999953, 33.991655321000053 ] } },
+{ "type": "Feature", "properties": { "FID": 5, "DIVISION": "SOUTHWEST", "LOCATION": "1546 MARTIN LUTHER KING JR. BLVD.", "PREC": 3 }, "geometry": { "type": "Point", "coordinates": [ -118.30514156299995, 34.010575340000059 ] } },
+{ "type": "Feature", "properties": { "FID": 6, "DIVISION": "NEWTON", "LOCATION": "3400 S. CENTRAL AVE.", "PREC": 13 }, "geometry": { "type": "Point", "coordinates": [ -118.256118890999971, 34.012355905000049 ] } },
+{ "type": "Feature", "properties": { "FID": 7, "DIVISION": "CENTRAL", "LOCATION": "251 E. 6TH ST.", "PREC": 1 }, "geometry": { "type": "Point", "coordinates": [ -118.247294122999961, 34.044019500000047 ] } },
+{ "type": "Feature", "properties": { "FID": 8, "DIVISION": "WEST LOS ANGELES", "LOCATION": "1663 BUTLER AVE.", "PREC": 8 }, "geometry": { "type": "Point", "coordinates": [ -118.450779540999974, 34.043777412000054 ] } },
+{ "type": "Feature", "properties": { "FID": 9, "DIVISION": "HOLLENBECK", "LOCATION": "2111 E. 1ST ST.", "PREC": 4 }, "geometry": { "type": "Point", "coordinates": [ -118.213067955999975, 34.045008769000049 ] } },
+{ "type": "Feature", "properties": { "FID": 10, "DIVISION": "WILSHIRE", "LOCATION": "4861 VENICE BLVD.", "PREC": 7 }, "geometry": { "type": "Point", "coordinates": [ -118.342829524999956, 34.046747682000046 ] } },
+{ "type": "Feature", "properties": { "FID": 11, "DIVISION": "OLYMPIC", "LOCATION": "1130 S. VERMONT AVE.", "PREC": 20 }, "geometry": { "type": "Point", "coordinates": [ -118.291175910999982, 34.050208529000031 ] } },
+{ "type": "Feature", "properties": { "FID": 12, "DIVISION": "RAMPART", "LOCATION": "1401 W. 6TH ST.", "PREC": 2 }, "geometry": { "type": "Point", "coordinates": [ -118.26697964899995, 34.056690437000043 ] } },
+{ "type": "Feature", "properties": { "FID": 13, "DIVISION": "HOLLYWOOD", "LOCATION": "1358 N. WILCOX AVE.", "PREC": 6 }, "geometry": { "type": "Point", "coordinates": [ -118.330669309999962, 34.095833225000035 ] } },
+{ "type": "Feature", "properties": { "FID": 14, "DIVISION": "NORTHEAST", "LOCATION": "3353 SAN FERNANDO RD.", "PREC": 11 }, "geometry": { "type": "Point", "coordinates": [ -118.249414483999942, 34.11920066600004 ] } },
+{ "type": "Feature", "properties": { "FID": 15, "DIVISION": "NORTH HOLLYWOOD", "LOCATION": "11640 BURBANK BLVD.", "PREC": 15 }, "geometry": { "type": "Point", "coordinates": [ -118.38585934799994, 34.17169393000006 ] } },
+{ "type": "Feature", "properties": { "FID": 16, "DIVISION": "VAN NUYS", "LOCATION": " 6240 SYLMAR AVE.", "PREC": 9 }, "geometry": { "type": "Point", "coordinates": [ -118.445225708999942, 34.183743273000061 ] } },
+{ "type": "Feature", "properties": { "FID": 17, "DIVISION": "WEST VALLEY", "LOCATION": "19020 VANOWEN ST.", "PREC": 10 }, "geometry": { "type": "Point", "coordinates": [ -118.547454437999988, 34.193397227000048 ] } },
+{ "type": "Feature", "properties": { "FID": 18, "DIVISION": "TOPANGA", "LOCATION": "21501 SCHOENBORN ST.", "PREC": 21 }, "geometry": { "type": "Point", "coordinates": [ -118.599636541999985, 34.221376654000039 ] } },
+{ "type": "Feature", "properties": { "FID": 19, "DIVISION": "FOOTHILL", "LOCATION": "12760 OSBORNE ST.", "PREC": 16 }, "geometry": { "type": "Point", "coordinates": [ -118.41041718299999, 34.25309122200008 ] } },
+{ "type": "Feature", "properties": { "FID": 20, "DIVISION": "DEVONSHIRE", "LOCATION": "10250 ETIWANDA AVE.", "PREC": 17 }, "geometry": { "type": "Point", "coordinates": [ -118.531373362999943, 34.256969059000028 ] } },
+{ "type": "Feature", "properties": { "FID": 21, "DIVISION": "MISSION", "LOCATION": "11121 N. SEPULVEDA BLVD.", "PREC": 19 }, "geometry": { "type": "Point", "coordinates": [ -118.468197807999957, 34.272979397000029 ] } }
+]
+}
