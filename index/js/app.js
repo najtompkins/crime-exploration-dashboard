@@ -51,13 +51,13 @@ L.control.layers(baseMaps, overlayMaps).addTo(map);
 // setting data to links from local API
 
 // API Route for crime data
-var dataUrl = 'http://127.0.0.1:5000/crimedata'
+var dataUrl = 'http://http://tompkins.pythonanywhere.com/crimedata'
 
 //  GEOJSON for Police Station Locations
-var geoUrl = 'http://127.0.0.1:5000/stations'
+var geoUrl = 'http://http://tompkins.pythonanywhere.com/stations'
 
 //  GEOJSON for drawing city areas
-var areaUrl = 'http://127.0.0.1:5000/cityareas'
+var areaUrl = 'http://http://tompkins.pythonanywhere.com/cityareas'
 
 
 
