@@ -305,7 +305,7 @@ document.addEventListener("DOMContentLoaded", function () {
             dropdownText.textContent = name
 
             if (name == 'OTHER') {
-                assaultURL = `http://127.0.0.1:5000/crimedata/other/all`
+                assaultURL = `http://tompkins.pythonanywhere.com/crimedata/other/all`
                 console.log(assaultURL)
                 // current.push(`${name}`)
                 heatLayer.clearLayers()
@@ -319,7 +319,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
                 console.log(noSpaceName)
 
-            assaultURL = `http://127.0.0.1:5000/crimedata/${noSpaceName}`
+            assaultURL = `http://tompkins.pythonanywhere.com/crimedata/${noSpaceName}`
             console.log(assaultURL)
             heatLayer.clearLayers()
             data(assaultURL)
