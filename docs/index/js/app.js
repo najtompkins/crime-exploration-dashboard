@@ -51,13 +51,13 @@ L.control.layers(baseMaps, overlayMaps).addTo(map);
 // setting data to links from local API
 
 // API Route for crime data
-var dataUrl = 'http://tompkins.pythonanywhere.com/crimedata'
+var dataUrl = 'https://tompkins.pythonanywhere.com/crimedata'
 
 //  GEOJSON for Police Station Locations
-var geoUrl = 'http://tompkins.pythonanywhere.com/stations'
+var geoUrl = 'https://tompkins.pythonanywhere.com/stations'
 
 //  GEOJSON for drawing city areas
-var areaUrl = 'http://tompkins.pythonanywhere.com/cityareas'
+var areaUrl = 'https://tompkins.pythonanywhere.com/cityareas'
 
 
 
@@ -305,7 +305,7 @@ document.addEventListener("DOMContentLoaded", function () {
             dropdownText.textContent = name
 
             if (name == 'OTHER') {
-                assaultURL = `http://tompkins.pythonanywhere.com/crimedata/other/all`
+                assaultURL = `https://tompkins.pythonanywhere.com/crimedata/other/all`
                 console.log(assaultURL)
                 // current.push(`${name}`)
                 heatLayer.clearLayers()
@@ -319,7 +319,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
                 console.log(noSpaceName)
 
-            assaultURL = `http://tompkins.pythonanywhere.com/crimedata/${noSpaceName}`
+            assaultURL = `https://tompkins.pythonanywhere.com/crimedata/${noSpaceName}`
             console.log(assaultURL)
             heatLayer.clearLayers()
             data(assaultURL)
