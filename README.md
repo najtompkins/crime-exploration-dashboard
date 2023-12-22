@@ -1,77 +1,81 @@
-# LA_CrimeData_Dashboard
-### Project #3: Full Stack Dashboard
+# Crime Data in LA - Full-Stack Dashboard
+
+### Team Members: <br> 
+[Martin Bedino](), <br>
+[David Pinsky](), <br>
+[Lois Stetson](), <br>
+[Nathan-Andrew Tompkins (self)]() <br>
 
 
-### Project Proposal
-#### Team Members: Martin Bedino, David Pinsky, Lois Stetson, Nathan-Andrew Tompkins
+## Summary
+This full-stack interactive dashboard of LA's crime data (reported between 2020-2023) is designed as a demonstration of my team's ability to:
+ 1. Gather, clean, and combine LA Policing and Crime data from various open sources, 
+ 2. Develop and deploy a non-local API using Python's Flask module in combination with an SQLite database which processes variable SQL queries.
+ 3. Design a single-page HTML5 dashboard that allows for interactive analysis of crime data by district and crime-type.
+ 4. Code a JavaScript file that handles all queries and API requests, serving the data through a Leaflet.js map.
 
-### City of Los Angeles Crime:
+# Project
 
-- We propose an analysis of the City of Los Angelos and the crime reported there to determine different variables and how they relate to crime rates based on age, types of weapons, locations of division police stations, etc... 
-- There are a few points we plan to explore using interactive visualization:
-  - Determine where crimes fall in relation to the police stations within the several LA divisions in. Map chart interactive visualization
-  - What is the most used weapon
-  - What are the distributions of the victim's ages?
-  - How does time of year and time of day affects the amount of crime? 
+## Import and Cleaning (Crime_data.ipynb)
+1. There are 3 primary sources of the data used to populate this dashboard:
+    1. The [primary crime data](REPLACE THIS), from Kaggle. 
+        * The File located in this repository, [DataSample.csv](https://geohub.lacity.org/datasets/lahub::lapd-police-stations/explore), is a cleaned and deprecated version of the original source and comprises of 1,000 samples to meet GitHub's repository upload size-limits.
+    2. The [police station location data](https://geohub.lacity.org/datasets/lahub::lapd-police-stations/explore), which was used to populate points on the interactive Leatlet.js heatmap representing police stations amidst the crime reported.
+    3. The [the LA disctrict/area boundaries](https://geohub.lacity.org/datasets/lahub::neighborhood-service-areas/explore), used to draw the numerous GeoJSON encoded district/area boundaries on the map.
 
-#### Dashboard layout mockup is attached in repo:
-![image](https://github.com/mbedino99/LA_CrimeData_Dashboard/assets/127718619/1a7762eb-b5ad-4fe5-bfe9-1cce71a92016)
+2. We used an .ipynb notebook ([data_cleaning.ipynb](data_cleaning.ipynb)) which imports the above LA crime data and places it into a Pandas dataframe. We dropped the unneeded columns, cleaned the records, then export a sample of the cleaned data ([DataSample.csv](data/DataSample.csv).) It should be noted that the cleaning of this data, while important, was a functional endeavor as cleaning was not the purpose of this project. As such, all data that did not have a reported age above 1 year (roughly 24.4% of the full data set) was excluded to increase efficiency of API calls.
 
+### Deploying the (local) Back-End (api_server_local.py)
+*This python file deploys a LOCAL Flask API. For information on the Deployed API, see below.*<br>
+<br>
+*Note: While cloning this repository in full is the best option to run this locally, the api_server.py file requires the noted Python dependencies (outlined below) to be installed before local deployement is successful, as well as the linked primary Crime Data source cited above. The DataCleaned.csv file that the data_cleaning.ipynb file exports operates on this original (large) .csv.* <br>
 
-#### Datasest:
-https://www.kaggle.com/datasets/nathaniellybrand/los-angeles-crime-dataset-2020-present
-- A sample of the data is provided in this repo
+1. After importing our dependencies (Pandas, Flask, Flask_CORS, SQLAlchemy, GeoPandas) the DataCleaned.csv is read in and exported to an sqlite server. Our Flask app is then set up with a few main routes in mind:
+    1. "/crimedata" - The first deploys all of the data from the CleanedData.csv in JSON format. While unused in the dashboard itself this route was vital to the debugging and creation of the visualization in the earlier stages of development.
+    2. "/crimedata/-crime-" - Provides a queried selection of the dataset. Event listeners are set up to request data on a specific crime based on which crime is selected from the dropdown menu in the front-end index.html.
+    3. "/crimedata/other/all" - Provides all crime data not specified in the dropdown menu when the user selects the "Other" dropdown option.
+    4. "/stations" - Serves the location data for the police stations in the LA area, imported from the [police station location data](https://geohub.lacity.org/datasets/lahub::lapd-police-stations/explore) CSV file so the Leaflet.js map may add the points to a map layer.
+    5. "/cityareas" - Provides [the LA district/area boundaries](https://geohub.lacity.org/datasets/lahub::neighborhood-service-areas/explore) of the LA area so the Leaflet.js map may add the areas to a map layer.
 
-https://geohub.lacity.org/datasets/lahub::lapd-police-stations/explore
+### Deploying the (hosted) Back-End (api_server_hosted.py)
+*This python file is the code used in the HOSTED Flask application deployed at [tompkins.pythonanywhere.com](https://tompkins.pythonanywhere.com). For information on the LOCAL API file, see above.*<br>
+<br>
+*Note: This API is designed to be deployed on a hosted server. As such, my GitHub Pages for this repository ([here]()) is the best way to interact with the data. For direct access use this URL structure: ```https://tompkins.pythonanywhere.com/<flask route>```. The Flask routes are outlined below.*<br>
+This version of the Flask application code includes a number of differences, the most important being the initialization of the API link variables changing from the local "LOCAL API LINK HERE" to the hosted "https://tompkins.pythonanywhere.com". This allowed for proper requests to the hosted Flask app.<br>
 
-https://geohub.lacity.org/search?collection=Dataset&q=police
-
-Github Repository link: https://github.com/mbedino99/LA_CrimeData_Dashboard.git
-
-Images for Inspiration:
-
-![image](https://github.com/mbedino99/LA_CrimeData_Dashboard/assets/127718619/cb94edf6-5bb4-4cd2-902f-bdac25d777f0)
-
-
-[https://i.stack.imgur.com/PFxoj.png](https://i.stack.imgur.com/PFxoj.png)
-
-[https://www.losangelesblade.com/content/files/2021/11/LA-LGBTQ-Heat-Map-e1636571868231.png](https://www.losangelesblade.com/content/files/2021/11/LA-LGBTQ-Heat-Map-e1636571868231.png)https://www.losangelesblade.com/content/files/2021/11/LA-LGBTQ-Heat-Map-e1636571868231.png
-
-# Submission
-
-### Import and Cleaning (Crime_data.ipynb)
-- The ipynb notebook  imports the local .csv file downloaded from kaggle source listed above into a Pandas dataframe, dropping unneeded columns and then exporting a sample of the cleaned data as a .csv and the full cleaned data into its own .csv. It should be noted that our analysis does not include the full dataset, as in cleaning we found it necessary to exclude any row of data that did not have a reported age. (roughly 24.4% of the full data set).
-
-### Deploying the local API (test.py)
-- After importing our dependencies the DataCleaned.csv is read in and exported to an sqlite server. Our Flask app is then set up with a few main routes in mind:
-  - The first contains all of the data from the CleanedData.csv in the JSON format. While unused in the final submission this route was vital to the debugging and creation of the visualization.
-  - The second provides a queried selection of the data based on what type of crime is selected from the dropdown menu in the front-end index.html. This code is dynamic enough that a simple addition of a specified crime to the list found on line 32 is enough to query the set, allowing scalability to the front-end dropdown menu and future specifications of crimes not yet available in the code.
-  - The third provides all data not specified in the dropdown menu when the user selects the "Other" dropdown option.
-  - The fourth provides the location data for the police stations in the LA area, imported from a linked source above.
-  - The fifth provides the district boundaries of the LA area in geoJson format, imported from a linked source above.
+1. After importing our dependencies (Pandas, Flask, Flask_CORS, SQLAlchemy, GeoPandas) the DataCleaned.csv is read in and exported to an sqlite server. Our Flask app is then set up with a few main routes in mind:
+    1. "/crimedata" - The first deploys all of the data from the CleanedData.csv in JSON format. While unused in the dashboard itself this route was vital to the debugging and creation of the visualization in the earlier stages of development.
+    2. "/crimedata/-crime-" - Provides a queried selection of the dataset. Event listeners are set up to request data on a specific crime based on which crime is selected from the dropdown menu in the front-end index.html.
+    3. "/crimedata/other/all" - Provides all crime data not specified in the dropdown menu when the user selects the "Other" dropdown option.
+    4. "/stations" - Serves the location data for the police stations in the LA area, imported from the [police station location data](https://geohub.lacity.org/datasets/lahub::lapd-police-stations/explore) CSV file so the Leaflet.js map may add the points to a map layer.
+    5. "/cityareas" - Provides [the LA disctrict/area boundaries](https://geohub.lacity.org/datasets/lahub::neighborhood-service-areas/explore) of the LA area so the Leaflet.js map may add the areas to a map layer.
  
-### Creating the Dashboard (index.html)
+### Creating the Front-End (/docs/index.html)
+*The front-end development process included using tools such as Bootstrap, Leaflet.js, Leaflet-heat.js, and Plot.ly. The general structure is outlined below.*
 - Head
   - Imported dependecies include:
-    - Bootstrap
+    - Bootstrap #1
     - Leaflet
     - Leaflet-Heatmap
+    - style.css (local)
     - Plotly
-    - Chart.js
-  - Body
+    - Chart.js #1
+- Body
     - Gradient background
-    - Infobox with two dropdown menus to view a specific LA district or select specific crimes on the map
-    - Leaflet heat-map, with different layers for stations, district boundaries, crimes.
-    - Chart for age distirbution
-    - Chart for sex distribution
-  - Scripts
-    - Leaflet dependency
-    - D3 dependency
-    - app.js dependency
+        - Infobox with two dropdown menus for LA district or specific crime selections.
+    - Leaflet heat-map, with different layers for stations, district boundaries, crimes. Populates as crimes are selected. Zooms as districts are selected.
+    - Chart for age distribution of records.
+    - Chart for sex distribution of records.
+  - Footer (and dependancies)
+    - Dashboard team credits
+    - Chart.js script #2
+    - D3 script
+    - app.js (local script)
+    - Bootstrap script #2
 
 ### Javascript Logic (app.js)
-- We first set up the layer variables for the leaflet map to be filled out later and then the map initialization itself, being sure to include layer controls.
-- We set our data urls to pull from our local APIs and created a data() function to pull whatever data we want to set to our heatmap from our local api.
-- Our district and police station layers were then populated by pulling from each local api link respectively, being conscientious about the "negative" areas of certain districts and how they are drawn.
-- We added event listeners to the population of the dropdown menus so that whenever they are clicked, the map updates with the information queried, or zooms in on the district selected.
-- We then populated the age distribution chart, and the sex distribution chart. Both made useing chart.js.
+1. We first set up a number of Leaflet layer variables for the Stations and District Areas for the API calls to populate. The map initialization itself occurs next, being sure to include layer controls for interactability.
+2. We set our API urls to call from our local server and created a data() function to populate our heatmap as specific crimes are selected.
+3. Our district and police-station map layers are populated by calling each dataset for that data, then drawn onto the map. Note that it was necessary to be particularly careful when coding this logic, as a number of districts contain "negative" areas which are under a different district of area classification.
+4. D3 tools were utilized to populate the dropdown menus with district names and crime types. Event listeners were added to each dropdown menus option so that as they are clicked the map updates with the specific crime queried, or zooms in on the unique district selected.
+5. Age and Sex distribution charts are generated and populated below the primary dashboard element (leaflet map.) Both charts were generated using the Chart.js libarary.
