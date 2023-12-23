@@ -1,34 +1,34 @@
 import pandas as pd
 from flask import Flask, jsonify
-import sqlalchemy
-from sqlalchemy.ext.automap import automap_base
-from sqlalchemy.orm import Session
-from sqlalchemy import create_engine, func
-import datetime as dt
-from datetime import timedelta
+from sqlalchemy import create_engine
 from flask_cors import CORS
 import geopandas as gpd
-import re
 #################################################
 # Database Setup
 #################################################
 
+# Set up connection with the SQLite server
 engine = create_engine("sqlite:///LA_Crime_Data.sqlite")
 
-# Write sample dataframe to SQL database
-df = pd.read_csv('DataCleaned.csv')
+
+# Determine which dataset to use in the SQLite database (uncomment as needed)
+
+# Write full cleaned dataset to SQLite database (all cleaned records)
+df = pd.read_csv('data/DataCleaned.csv')
 df.to_sql('LA_Crime_Data', con= engine, if_exists='replace', index=False)
 
 
-# # Write cleaned data to SQL database
-# cleaned_df = pd.read_csv('DataCleaned.csv')
-# cleaned_df.to_sql('LA_Crime_Data_cleaned', con= engine, if_exists='replace', index=False)
+# Write sample dataset to SQLite database (50,000 records)
+# df = pd.read_csv('data/DataSample.csv')
+# df.to_sql('LA_Crime_Data', con= engine, if_exists='replace', index=False)
 
 
-# # Write complete data to SQL database
-# all_ages_df = pd.read_csv('Data_All_Ages.csv')
-# all_ages_df.to_sql('LA_Crime_Data_All', con= engine, if_exists='replace', index=False)
+# Write larger sample dataset to SQLite database (500,000 records, <100 mb filesize)
+# df = pd.read_csv('data/DataSample_100.csv')
+# df.to_sql('LA_Crime_Data', con= engine, if_exists='replace', index=False)
 
+
+# Establish list of crimes used in front-end dropdown crime-selector
 crimes = [ 'ASSAULT', 'ARSON', 'BATTERY', 'BIKE', 'BOMB', 'BUNCO', 'BURGLARY', 'COUNTERFEIT', 'CREDIT CARD', 'CRIMINAL HOMICIDE', 'DISTURBING THE PEACE', 'FORGERY', 'EMBEZZLEMENT', 'EXTORTION', 'HUMAN TRAFFICKING', 'INDECENT EXPOSURE', 'KIDNAPPING', 'LEWD', 'PICKPOCKET', 'ROBBERY', 'SHOPLIFTING', 'SEX', 'STALKING', 'THEFT', 'TRESPASSING', 'VANDALISM', 'VEHICLE','OTHER']
 
 
@@ -36,13 +36,16 @@ crimes = [ 'ASSAULT', 'ARSON', 'BATTERY', 'BIKE', 'BOMB', 'BUNCO', 'BURGLARY', '
 # Flask Setup
 #################################################
 app = Flask(__name__)
+#################################################
+# Flask Https Setup
+#################################################
 CORS(app)
 #################################################
 # Flask Routes
 #################################################
 @app.route("/")
 def welcome():
-    return "Welcome!"
+    return "Welcome! This is the LA Crime Data Dashboard API homepage."
 
 # This route performs a get all query on the database.
 @app.route("/crimedata")
@@ -107,7 +110,7 @@ def other():
 @app.route("/stations")
 def stations():
 
-    gdf = gpd.read_file('LAPD_Police_Stations.geojson')
+    gdf = gpd.read_file('data/LAPD_Police_Stations.geojson')
 
     # Initialize an empty GeoJSON dictionary
     new_geojson_dict = {
@@ -130,7 +133,7 @@ def stations():
 @app.route("/cityareas")
 def cityareas():
 
-    gdf2 = gpd.read_file('Neighborhood_Service_Areas.geojson')
+    gdf2 = gpd.read_file('data/Neighborhood_Service_Areas.geojson')
 
     # Initialize an empty GeoJSON dictionary
     new_geojson_dict2 = {

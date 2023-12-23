@@ -51,13 +51,16 @@ L.control.layers(baseMaps, overlayMaps).addTo(map);
 // setting data to links from local API
 
 // API Route for crime data
-var dataUrl = 'https://tompkins.pythonanywhere.com/crimedata'
+var dataUrl = 'http://127.0.0.1:5000/crimedata'
+// var dataUrl = 'http://tompkins.pythonanywhere.com/crimedata' //url when this file is deployed on a hosted server
 
 //  GEOJSON for Police Station Locations
-var geoUrl = 'https://tompkins.pythonanywhere.com/stations'
+var geoUrl = 'http://127.0.0.1:5000/stations'
+// var geoUrl = 'http://tompkins.pythonanywhere.com/stations' //url when this file is deployed on a hosted server
 
 //  GEOJSON for drawing city areas
-var areaUrl = 'https://tompkins.pythonanywhere.com/cityareas'
+var areaUrl = 'http://127.0.0.1:5000/cityareas'
+// var areaUrl = 'http://tompkins.pythonanywhere.com/cityareas' //url when this file is deployed on a hosted server
 
 
 
@@ -305,7 +308,9 @@ document.addEventListener("DOMContentLoaded", function () {
             dropdownText.textContent = name
 
             if (name == 'OTHER') {
-                assaultURL = `https://tompkins.pythonanywhere.com/crimedata/other/all`
+                assaultURL = `http://127.0.0.1:5000/crimedata/other/all`
+                // assaultURL = `http://tompkins.pythonanywhere.com/crimedata/other/all` //url when this file is deployed on a hosted server
+
                 console.log(assaultURL)
                 // current.push(`${name}`)
                 heatLayer.clearLayers()
@@ -319,7 +324,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
                 console.log(noSpaceName)
 
-            assaultURL = `https://tompkins.pythonanywhere.com/crimedata/${noSpaceName}`
+            assaultURL = `http://127.0.0.1:5000/crimedata/${noSpaceName}`
+            // assaultURL = `http://tompkins.pythonanywhere.com/crimedata/${noSpaceName}` //url when this file is deployed on a hosted server
             console.log(assaultURL)
             heatLayer.clearLayers()
             data(assaultURL)

@@ -5,3 +5,5 @@ dashboard.ipynb
 requirements.txt
 testing.ipynb
 DataSample_100.csv
+LA_Crime_Data.sqlite
+data_cleaning.ipynb
