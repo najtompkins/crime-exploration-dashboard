@@ -52,15 +52,15 @@ L.control.layers(baseMaps, overlayMaps).addTo(map);
 
 // API Route for crime data
 // var dataUrl = 'http://127.0.0.1:5000/crimedata'
-var dataUrl = 'http://tompkins.pythonanywhere.com/crimedata' //url when this file is deployed on a hosted server
+var dataUrl = 'https://tompkins.pythonanywhere.com/crimedata' //url when this file is deployed on a hosted server
 
 //  GEOJSON for Police Station Locations
 // var geoUrl = 'http://127.0.0.1:5000/stations'
-var geoUrl = 'http://tompkins.pythonanywhere.com/stations' //url when this file is deployed on a hosted server
+var geoUrl = 'https://tompkins.pythonanywhere.com/stations' //url when this file is deployed on a hosted server
 
 //  GEOJSON for drawing city areas
 // var areaUrl = 'http://127.0.0.1:5000/cityareas'
-var areaUrl = 'http://tompkins.pythonanywhere.com/cityareas' //url when this file is deployed on a hosted server
+var areaUrl = 'https://tompkins.pythonanywhere.com/cityareas' //url when this file is deployed on a hosted server
 
 
 
@@ -308,8 +308,8 @@ document.addEventListener("DOMContentLoaded", function () {
             dropdownText.textContent = name
 
             if (name == 'OTHER') {
-                assaultURL = `http://127.0.0.1:5000/crimedata/other/all`
-                // assaultURL = `http://tompkins.pythonanywhere.com/crimedata/other/all` //url when this file is deployed on a hosted server
+                // assaultURL = `http://127.0.0.1:5000/crimedata/other/all`
+                assaultURL = `https://tompkins.pythonanywhere.com/crimedata/other/all` //url when this file is deployed on a hosted server
 
                 console.log(assaultURL)
                 // current.push(`${name}`)
@@ -324,8 +324,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
                 console.log(noSpaceName)
 
-            assaultURL = `http://127.0.0.1:5000/crimedata/${noSpaceName}`
-            // assaultURL = `http://tompkins.pythonanywhere.com/crimedata/${noSpaceName}` //url when this file is deployed on a hosted server
+            // assaultURL = `http://127.0.0.1:5000/crimedata/${noSpaceName}`
+            assaultURL = `https://tompkins.pythonanywhere.com/crimedata/${noSpaceName}` //url when this file is deployed on a hosted server
             console.log(assaultURL)
             heatLayer.clearLayers()
             data(assaultURL)
