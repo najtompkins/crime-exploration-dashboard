@@ -7,6 +7,8 @@
 **Nathan-Andrew Tompkins (self)**: GitHub: [najtompkins](https://github.com/najtompkins) <br>
 
 
+# Explore the Dashboard [Here](https://najtompkins.github.io/crime-exploration-dashboard/docs)
+
 ## Project Summary
 This full-stack interactive dashboard of LA's crime data (reported between 2020-2023) is designed as a demonstration of my team's ability to: <br>
 1. Develop and deploy a local API using Flask in combination with an SQLite database processing variable SQL queries.
@@ -14,7 +16,7 @@ This full-stack interactive dashboard of LA's crime data (reported between 2020-
 2. Gather, clean, and combine LA Policing and Crime data from various open sources and import them into the SQLite database
 4. Write a JavaScript logic that handles all dashboard interactions, including populating a Leaflet.js map, generating Plot.ly charts, etc.
 
- (*The non-local API can be explored from the interactive dashboard linked above, or directly by following instructions in point #2 of the "Deploying the Back-End* section.*)
+ (*The non-local API can be explored from the interactive dashboard linked above, or directly by following instructions in point #2 of the "Deploying the Back-End"* section.*)
 
 ## How To Locally Deploy This Dashboard:
 
