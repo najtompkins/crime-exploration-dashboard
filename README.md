@@ -1,4 +1,4 @@
-# Crime Data in LA - Full-Stack Dashboard
+# Crime Data in LA --- Full-Stack Dashboard
 
 ### Team Members: <br> 
 **Martin Bedino**: GitHub: [mbedino99](https://github.com/mbedino99) <br>
@@ -21,8 +21,9 @@ This full-stack interactive dashboard of LA's crime data (reported between 2020-
 1. Download or clone this repository.
 2. Download the [primary crime data](https://data.lacity.org/Public-Safety/Crime-Data-from-2020-to-Present/2nrs-mtv8/about_data) (2020-Present), from LA City's own website into the /data directory.
 3. Run the data_cleaning.py file to clean and export the cleaned .csv files needed to run everything else.
+4. Open the app.js file (located in the docs/index/js ([here](docs/index/js/app.js))) and comment-out lines 55, 59, and 63. Un-comment lines 54,58, and 62. **This routes the API calls to pull locally, instead of the external server where the data is also hosted.** Save the file.
 4. Run the api_server.py in the terminal. (This server will need to be shut down later)
-    * *The code near the top of this file defaults to using the full DataCleaned.csv in the SQLite file. If you would like to use the other smaller exported .csv files, uncomment and comment-out code as directed.*
+    * *The code near the top of this file defaults to using the full DataCleaned.csv in the SQLite file. If you would like to use the other smaller exported .csv files, uncomment and comment-out code as directed within the code.*
     * Be sure that the Python modules: Pandas, Flask, Flask_CORS, SQLAlchemy, and GeoPandas are installed in your python environment.
 5. Open the index.html file in your preferred browser. (Only Safari and Chrome were tested)
 6. Explore the dashboard and allow a few moments for the API to populate the heatmap after each crime selection.
