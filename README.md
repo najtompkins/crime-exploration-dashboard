@@ -13,6 +13,8 @@
 
 # Explore the Dashboard: [Here](https://najtompkins.github.io/crime-exploration-dashboard/docs) <br> Project Repository Located: [Here](https://github.com/najtompkins/crime-exploration-dashboard)
 
+![Dashboard](docs/index/dashboard_example.png)
+
 ## Project Summary
 This full-stack interactive dashboard of LA's crime data (reported between 2020-2023) is designed as a demonstration of my team's ability to: <br>
 1. Develop and deploy a local API using Flask in combination with an SQLite database processing variable SQL queries.
