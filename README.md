@@ -6,6 +6,9 @@
 **Lois Stetson**: GitHub: [loisstetson9](https://github.com/loisstetson9) <br>
 **Nathan-Andrew Tompkins (self)**: GitHub: [najtompkins](https://github.com/najtompkins) <br>
 
+*Note:*<br>
+*This project was developed as part of the 2023 UCF Data Analytics and Visualization Bootcamp.*
+
 * **
 
 # Explore the Dashboard: [Here](https://najtompkins.github.io/crime-exploration-dashboard/docs) <br> Project Repository Located: [Here](https://github.com/najtompkins/crime-exploration-dashboard)
@@ -37,8 +40,8 @@ This full-stack interactive dashboard of LA's crime data (reported between 2020-
 ## Sourcing and Cleaning
 1. There are 3 primary sources of the data used to populate this dashboard:
     1. The [primary crime data](https://data.lacity.org/Public-Safety/Crime-Data-from-2020-to-Present/2nrs-mtv8/about_data) (2020-Present), from LA City's own website.
-        * *Note that the data used in this dashboard was exported in September of 2023.*
-        * *[DataSample.csv](https://geohub.lacity.org/datasets/lahub::lapd-police-stations/explore), the file located in this repository, is a cleaned and deprecated version of the original source and comprises of 50,000 record samples to meet GitHub's repository upload size-limits. It is meant as a representation of the data and is not the actual source to use when deploying the local Flask app.*
+        * *Note that the data actually used in this dashboard was sourced from Kaggle [here](https://www.kaggle.com/datasets/nathaniellybrand/los-angeles-crime-dataset-2020-present). It was exported from the above link in June of 2023.*
+        * *Note: [DataSample.csv](https://geohub.lacity.org/datasets/lahub::lapd-police-stations/explore), the file located in this repository, is a cleaned and deprecated version of the original source and comprises of 50,000 record samples to meet GitHub's repository upload size-limits. It is meant as a representation of the data and is not the actual source to use when deploying the local Flask app.*
     2. The [police station location data](https://geohub.lacity.org/datasets/lahub::lapd-police-stations/explore), which was used to populate points on the interactive Leatlet.js heatmap representing police stations amidst the crimes reported.
     3. The [the LA disctricts/area boundaries](https://geohub.lacity.org/datasets/lahub::neighborhood-service-areas/explore), used to draw the numerous GeoJSON encoded districts/area boundaries on the map.
 
