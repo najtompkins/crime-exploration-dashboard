@@ -8,7 +8,7 @@
 
 * **
 
-# Explore the Dashboard: [Here](https://najtompkins.github.io/crime-exploration-dashboard/docs) <br> Dashboard Repository Link: [Here](https://github.com/najtompkins/crime-exploration-dashboard)
+# Explore the Dashboard: [Here](https://najtompkins.github.io/crime-exploration-dashboard/docs) <br> Project Repository Located: [Here](https://github.com/najtompkins/crime-exploration-dashboard)
 
 ## Project Summary
 This full-stack interactive dashboard of LA's crime data (reported between 2020-2023) is designed as a demonstration of my team's ability to: <br>
