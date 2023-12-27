@@ -23,7 +23,7 @@ This full-stack interactive dashboard of LA's crime data (reported between 2020-
 1. Download or clone this repository.
 2. Download the [primary crime data](https://data.lacity.org/Public-Safety/Crime-Data-from-2020-to-Present/2nrs-mtv8/about_data) (2020-Present), from LA City's own website into the /data directory.
 3. Run the data_cleaning.py file to clean and export the cleaned .csv files needed to run everything else.
-4. Open the app.js file (located in the docs/index/js ([here](docs/index/js/app.js))) and comment-out lines 55, 59, and 63. Un-comment lines 54,58, and 62. **This routes the API calls to pull locally, instead of the external server where the data is also hosted.** Save the file.
+4. Open the app.js file (located in the docs/index/js ([here](docs/index/js/app.js))) and comment-out lines 43, 55, 59, and 63. Un-comment lines 42, 54, 58, and 62. **This routes the API calls to pull locally, instead of the external server where the data is also hosted.** Save the file.
 4. Run the api_server.py in the terminal. (This server will need to be shut down later)
     * *The code near the top of this file defaults to using the full DataCleaned.csv in the SQLite file. If you would like to use the other smaller exported .csv files, uncomment and comment-out code as directed within the code.*
     * Be sure that the Python modules: Pandas, Flask, Flask_CORS, SQLAlchemy, and GeoPandas are installed in your python environment.
@@ -41,7 +41,7 @@ This full-stack interactive dashboard of LA's crime data (reported between 2020-
     2. The [police station location data](https://geohub.lacity.org/datasets/lahub::lapd-police-stations/explore), which was used to populate points on the interactive Leatlet.js heatmap representing police stations amidst the crimes reported.
     3. The [the LA disctricts/area boundaries](https://geohub.lacity.org/datasets/lahub::neighborhood-service-areas/explore), used to draw the numerous GeoJSON encoded districts/area boundaries on the map.
 
-2. A python script was developed ([data_cleaning.py](data_cleaning.py)) which imports the above LA crime data and places it into a Pandas dataframe. This drops the unneeded columns, cleans the records, then exports various sample sizes of the cleaned data: [DataCleaned.csv](data/DataCleaned.csv), which is all data less what was removed in cleaning, [DataSample.csv](data/DataSample.csv), which is a 50 thousand record sample of the data for the purposes of GitHub size limits, and [DataSample_100.csv](data/DataSample_100.csv), which is a < 100mb sample of the the cleaned data used when deploying the Flask App on a hosted server.
+2. A python script was developed ([data_cleaning.py](data_cleaning.py)) which imports the above LA crime data and places it into a Pandas dataframe. This drops the unneeded columns, cleans the records, then exports various sample sizes of the cleaned data: [DataCleaned.csv](data/DataCleaned.csv), which is all data less what was removed in cleaning, [DataSample.csv](data/DataSample.csv), which is a 50 thousand record sample of the data for the purposes of GitHub size limits, and [DataSample_50.csv](data/DataSample_50.csv), which is a < 50mb sample of the the cleaned data used when deploying the Flask App on a hosted server.
     * *Note that the cleaning of this data, while important, was a functional endeavor and not extensive. The full-stack nature was prioritized and the decision to remove all data that did not have a reported age above 1 year (roughly 24.4% of the full set) was made to increase efficiency of API calls.*
 
 ### Creating the Front-End (/docs/index.html)
@@ -80,7 +80,7 @@ Note: While cloning this repository in full is the best option **when your desir
     5. "/cityareas" - Provides [the LA district/area boundaries](https://geohub.lacity.org/datasets/lahub::neighborhood-service-areas/explore) of the LA area so the Leaflet.js map may add the areas to a map layer.
 2. The differences between the local vs hosted Flask app are minimal. As such, the code for the hosted version is not directly included in this repository as a separate file, but is instead commented out in the api_server.py file. The differences include: 
     1. File paths for each of the .csv files. 
-    2. Use of a much large DataSample.csv which uses < 100mb of the original cleaned data. (This is the reason for the call-response delay on the front-end.)<br>
+    2. Use of a much large DataSample.csv which uses < 50mb of the original cleaned data. (This is the reason for the call-response delay on the front-end.)<br>
         1. Use this URL structure to access this API: <br>
     ```https://tompkins.pythonanywhere.com/<flask route>```. <br> *The Flask routes are outlined above. Leave route blank to return the app's welcome page.*<br>
 

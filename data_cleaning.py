@@ -48,14 +48,14 @@ sample_df = cleanedDf.sample(n=n_rows_to_select, random_state=99)
 sample_df.to_csv("data/DataSample.csv", index=False)
 
 # *******************************************************
-# Sample data < 100mb
+# Sample data < 50mb
 # *******************************************************
 
 # Specify the number of samples desired
-n_rows_to_select = 500000
+n_rows_to_select = 250000
 
 # Randomly select rows
 random_sample_df = cleanedDf.sample(n=n_rows_to_select, random_state=42)
 
 # export sample of data for git upload purposes
-random_sample_df.to_csv("data/DataSample_100.csv", index=False)
+random_sample_df.to_csv("data/DataSample_50.csv", index=False)

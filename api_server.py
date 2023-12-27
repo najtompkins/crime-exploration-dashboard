@@ -23,7 +23,7 @@ df.to_sql('LA_Crime_Data', con= engine, if_exists='replace', index=False)
 # df.to_sql('LA_Crime_Data', con= engine, if_exists='replace', index=False)
 
 
-# Write larger sample dataset to SQLite database (500,000 records, <100 mb filesize)
+# Write larger sample dataset to SQLite database (250,000 records, <50 mb filesize)
 # df = pd.read_csv('data/DataSample_100.csv')
 # df.to_sql('LA_Crime_Data', con= engine, if_exists='replace', index=False)
 
@@ -39,7 +39,8 @@ app = Flask(__name__)
 #################################################
 # Flask Https Setup
 #################################################
-CORS(app)
+# CORS(app)
+CORS(app, origins=["https://najtompkins.github.io"])
 #################################################
 # Flask Routes
 #################################################
