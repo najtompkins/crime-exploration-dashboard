@@ -6,8 +6,9 @@
 **Lois Stetson**: GitHub: [loisstetson9](https://github.com/loisstetson9) <br>
 **Nathan-Andrew Tompkins (self)**: GitHub: [najtompkins](https://github.com/najtompkins) <br>
 
+* **
 
-# Explore the Dashboard [Here](https://najtompkins.github.io/crime-exploration-dashboard/docs)
+# Explore the Dashboard: [Here](https://najtompkins.github.io/crime-exploration-dashboard/docs) <br> Dashboard Repository Link: [Here](https://github.com/najtompkins/crime-exploration-dashboard)
 
 ## Project Summary
 This full-stack interactive dashboard of LA's crime data (reported between 2020-2023) is designed as a demonstration of my team's ability to: <br>
